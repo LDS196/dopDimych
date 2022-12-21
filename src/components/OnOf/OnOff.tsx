@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 
+
 const OnOff = () => {
     let [on, setOn] = useState(false)
 
@@ -14,17 +15,21 @@ const OnOff = () => {
         background: on ? 'green' : 'red'
     }
     return (
-        <div>
-            <button style={onStyle} onClick={() => {
-                setOn(true)
-            }}>On
-            </button>
-            <button style={offStyle} onClick={() => {
-                setOn(false)
-            }}>Off
-            </button>
-            <button style={indicatorStyle}>indicator</button>
-        </div>
+
+            <div>
+                <button style={onStyle} onClick={() => {
+                    setOn(true)
+                }}>On
+                </button>
+                <button style={offStyle} onClick={() => {
+                    setOn(false)
+                }}>Off
+                </button>
+                <button style={indicatorStyle}>indicator</button>
+            </div>
+
+
+
     )
 }
 

@@ -3,6 +3,7 @@ import './App.css';
 import Accordion from "./components/accordion/accordion";
 import {Rating} from "./components/rating/rating";
 import OnOff from "./components/OnOf/OnOff";
+import UncontrolAccordion from "./components/accordion/UncontrolAccordion";
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
             <Rating value={4}/>
             <OnOff/>
             <OnOff/>
+            <UncontrolAccordion titleValue={'1list'}/>
+            {/*<UncontrolAccordion titleValue={'2list'}/>*/}
         </div>
     );
 }
