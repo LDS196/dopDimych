@@ -7,20 +7,6 @@ type UncontrolAccordionType = {
 
 
 function UncontrolAccordion(props: UncontrolAccordionType) {
-
-    return (
-        <div>
-            <AccordionTitle title={props.titleValue}/>
-        </div>
-    )
-
-}
-
-type AccordionTitlePropsType = {
-    title: string,
-}
-
-function AccordionTitle(props: AccordionTitlePropsType) {
     let [state, setState] = useState(false);
 
     function f1(){
@@ -30,8 +16,24 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     }
     return (
         <div>
-            <h3 onClick={() => {f1()}}>{props.title}</h3>
-            {state ? <AccordionBody/> : ""}
+            <AccordionTitle title={props.titleValue} f1={f1} state={state}/>
+        </div>
+    )
+
+}
+
+type AccordionTitlePropsType = {
+    title: string,
+    f1:()=>void;
+    state:boolean
+}
+
+function AccordionTitle(props: AccordionTitlePropsType) {
+
+    return (
+        <div>
+            <h3 onClick={() => {props.f1()}}>{props.title}</h3>
+            {props.state ? <AccordionBody/> : ""}
 
         </div>
     )
