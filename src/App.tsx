@@ -1,28 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/accordion/accordion";
-import {Rating} from "./components/rating/rating";
+import {Rating, RatingValueType} from "./components/rating/rating";
 import OnOff from "./components/OnOf/OnOff";
-import UncontrolAccordion from "./components/accordion/UncontrolAccordion";
+import UnControlAccordion from "./components/accordion/UnControlAccordion";
+import {UnControlledrating} from "./components/rating/UnControlledrating";
+
+
+
 
 
 function App() {
-
+let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     return (
         <div>
-            <PageTitle title = {'This is'}/>
-            <PageTitle title = {'Frends'}/>
-            <Rating value={3}/>
-            <Accordion titleValue={'first title'} collapsed={true}/>
-            <Accordion titleValue={'second title'} collapsed={false}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
             <OnOff/>
             <OnOff/>
-            <UncontrolAccordion titleValue={'1list'}/>
-            {/*<UncontrolAccordion titleValue={'2list'}/>*/}
+            <Rating ratingValue={ratingValue}callBackRating={setRatingValue}/>
+            {/*<PageTitle title = {'This is'}/>*/}
+            {/*<PageTitle title = {'Frends'}/>*/}
+
+            {/*<Accordion titleValue={'first title'} collapsed={true}/>*/}
+            {/*<Accordion titleValue={'second title'} collapsed={false}/>*/}
+
+
+
+
+            <UnControlAccordion titleValue={'1list'}/>
+            <UnControlledrating />
         </div>
     );
 }

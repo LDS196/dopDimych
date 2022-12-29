@@ -1,74 +1,35 @@
 import React from "react";
 
+export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5;
 type RatingPropsType = {
-    value: 0 | 1 | 2 | 3 | 4,
+    ratingValue: RatingValueType
+    callBackRating: (value: RatingValueType) => void
 }
+
 export function Rating(props: RatingPropsType) {
-    if(props.value ===1) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>
-        )
-    }
-    if(props.value ===2) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>
-        )
-    }
-    if(props.value ===3) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>
-        )
-    }
-    if(props.value ===4) {
-        return (
-            <div>
-                <Star selected={true}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-                <Star selected={false}/>
-            </div>
-        )
-    }
-        return (
-            <div>
-                <Star selected = {true} />
-                <Star selected = {true}/>
-                <Star selected = {true}/>
-                <Star selected = {false}/>
-                <Star selected = {false}/>
-            </div>
-        );
-    }
+
+    return (
+        <div>
+            <Star selected={props.ratingValue > 0} value={1} callBackRating={props.callBackRating}/>
+            <Star selected={props.ratingValue > 1} value={2} callBackRating={props.callBackRating}/>
+            <Star selected={props.ratingValue > 2} value={3} callBackRating={props.callBackRating}/>
+            <Star selected={props.ratingValue > 3} value={4} callBackRating={props.callBackRating}/>
+            <Star selected={props.ratingValue > 4} value={5} callBackRating={props.callBackRating}/>
+        </div>
+    )
+
+}
 
 type StarPropsType = {
     selected: boolean,
+    value: RatingValueType
+    callBackRating: (value: RatingValueType) => void
 }
-function Star(props: StarPropsType) {
-    console.log('Star')
 
-    if(props.selected){
-        return <span><b>Star1 </b></span>
-    } else {
-        return <span>Star2 </span>
-    }
+function Star(props: StarPropsType) {
+
+    return (
+        <span onClick={() => props.callBackRating(props.value)}>{props.selected ? <b>star </b> : 'star '}</span>
+    )
 
 }
