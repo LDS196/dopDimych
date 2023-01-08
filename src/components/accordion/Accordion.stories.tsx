@@ -3,17 +3,34 @@ import {ComponentStory, ComponentMeta, Story} from '@storybook/react';
 import {Accordion, AccordionPropsType} from './Accordion';
 import {action} from "@storybook/addon-actions";
 
+const GetCategoryObj =(categoryName:string)=> ({
+    table: {
+        category: categoryName
+    }
+})
 
 export default {
-    title: 'Accordion',
+    title: 'components/Accordion',
     component: Accordion,
+    argTypes: {
+        color: {
+            control: 'color',
+            ...GetCategoryObj("Color")
+        },
+        onChange: {
+            ...GetCategoryObj("Event")
+        },
+        onClick: {
+            ...GetCategoryObj("Event")
+        }
+    }
 } as ComponentMeta<typeof Accordion>;
 
 const callback = action('accordion change fired');
 
 const Template: Story<AccordionPropsType> = (args) => <Accordion {...args} />;
 
-const callbackProps={
+const callbackProps = {
     onChange: callback
 }
 
@@ -33,8 +50,10 @@ UsersUncollapsedMode.args = {
 }
 
 
-
-export const ModeChanging = () => {
+export const ModeChanging: Story<AccordionPropsType> = (args) => {
     let [value, setValue] = useState(false);
-    return <Accordion titleValue={'Menu'} collapsed={value} onChange={() => setValue(!value)}/>
+    return <Accordion {...args} collapsed={value} onChange={() => setValue(!value)}/>
+}
+ModeChanging.args = {
+    titleValue: 'Menu'
 }

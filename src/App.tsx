@@ -21,7 +21,8 @@ function App() {
             {/*<PageTitle title = {'This is'}/>*/}
             {/*<PageTitle title = {'Frends'}/>*/}
 
-            <Accordion titleValue={'Menu'} collapsed={collapsed} onChange={()=>setCollapsed(!collapsed)}/>
+            <Accordion titleValue={'Menu'} collapsed={collapsed} onChange={()=>setCollapsed(!collapsed)}
+            />
 
             <UnControlAccordion titleValue={'1list'}/>
             <UnControlledRating defaultValue={3} onChange={()=>{}}/>
