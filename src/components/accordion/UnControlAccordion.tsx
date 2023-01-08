@@ -6,7 +6,7 @@ type UnControlAccordionType = {
 }
 
 
-function UnControlAccordion(props: UnControlAccordionType) {
+export  function UnControlAccordion(props: UnControlAccordionType) {
     let [collapsed, setCollapsed] = useState(false);
 
     return (
@@ -40,4 +40,3 @@ function AccordionBody() {
     )
 }
 
-export default UnControlAccordion;
