@@ -12,7 +12,7 @@ function App() {
     let [on, setOn] = useState(false);
     let [collapsed, setCollapsed] = useState<boolean>(false);
     let [switchOn, setSwitchOn] = useState(false);
-
+    const items=[{title:"sfd", value: 1},{title:"wwww", value: 2}]
     return (
         <div>
             <OnOff on={on} onChange={setOn}/>
@@ -22,6 +22,7 @@ function App() {
             {/*<PageTitle title = {'Frends'}/>*/}
 
             <Accordion titleValue={'Menu'} collapsed={collapsed} onChange={()=>setCollapsed(!collapsed)}
+                       items={items} onClick={()=> alert('ff')}
             />
 
             <UnControlAccordion titleValue={'1list'}/>
