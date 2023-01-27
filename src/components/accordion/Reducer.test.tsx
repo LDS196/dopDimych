@@ -34,7 +34,6 @@ test('throw error', ()=>{
 
     //action
 
-    // const newState= reducer(state,{type:TOGGLE_COLLAPSED})
 
     //expection
     expect(()=> reducer(state,{type:'FAKE'})).toThrowError()

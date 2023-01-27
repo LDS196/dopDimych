@@ -4,6 +4,7 @@ import styles from './Select.module.css'
 export type ItemType = {
     title: string
     value: any
+
 }
 export type SelectType = {
     value?: string
@@ -11,7 +12,9 @@ export type SelectType = {
     items: ItemType[]
 }
 
-export const Select = (props: SelectType) => {
+
+
+ export const Select = (props: SelectType) => {
     const [active, setActive] = useState(false)
     let [hoveredItemValue, setHoveredItemValue] = useState(props.value)
 
@@ -24,7 +27,7 @@ export const Select = (props: SelectType) => {
         setActive(!active)
     }
     const hoveredItem = (value: any) => {
-        setHoveredItemValue(value)
+         setHoveredItemValue(value)
     }
     const onItemClick = (value: any) => {
         props.onChange(value);
@@ -54,7 +57,7 @@ export const Select = (props: SelectType) => {
             setActive(!active)
         }
     }
-
+     console.log(props.value)
     return (<>
             <div className={styles.select} onKeyUp={onKeyUp} tabIndex={0}>
 
@@ -66,7 +69,7 @@ export const Select = (props: SelectType) => {
                             className={styles.item + ' ' + (hoveredItemValue === i.value ? styles.selected : '')}
                             onMouseEnter={() => hoveredItem(i.value)}
                             onClick={() => onItemClick(i.value)}
-                            key={i.value}>{i.title}</div>)}
+                            key={i.value * Math.random()}>{i.title}</div>)}
                     </div>
                 }
 

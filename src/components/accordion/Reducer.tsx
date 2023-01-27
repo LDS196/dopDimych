@@ -1,7 +1,3 @@
-import {bool} from "prop-types";
-import {throws} from "assert";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
 
 export type ActionType = {
     type: string
