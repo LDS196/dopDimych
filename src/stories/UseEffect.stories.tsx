@@ -17,3 +17,18 @@ useEffect(()=>{
         {counter}
     </>
 }
+
+export const SetTimeOutExample = () => {
+    console.log('ex1 ')
+    const [counter, setCounter] = useState(0)
+    useEffect(()=>{
+        setInterval(()=>{
+           setCounter(state=> state + 1)
+        },1000)
+
+    },[])
+    return <>
+        {/*<button onClick={() => setCounter(state=> state +1)}>+</button>*/}
+        {counter}
+    </>
+}
